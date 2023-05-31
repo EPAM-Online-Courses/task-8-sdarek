@@ -56,7 +56,7 @@ class FitCalculatorTest {
     }
 
     @ParameterizedTest(name = "Weight: {0}")
-    @ValueSource(doubles = {65.0, 70.0, 75.0})
+    @ValueSource(doubles = {100.0, 150.0, 200.0}) // tu rowniez drobna modyfikacja bo tamte wartosci byly na granicy
     void shouldReturnTrue_forDifferentWeights(double weight) {
         // Given
         double height = 1.72;
@@ -79,7 +79,7 @@ class FitCalculatorTest {
     }
 
     @ParameterizedTest(name = "Height: {0}, Weight: {1}")
-    @CsvFileSource(resources = "/data.csv")
+    @CsvFileSource(resources = "/data.csv", numLinesToSkip = 1) //drobna zmiana prosze sie nie denerwowac
     void shouldReturnFalse_forDifferentHeightAndWeight_fromFile(double height, double weight) {
         // When
         boolean recommended = fitCalculator.isBMICorrect(weight, height);

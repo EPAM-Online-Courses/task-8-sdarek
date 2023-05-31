@@ -37,6 +37,9 @@ class PlannerTest {
         DailyIntake calculatedIntake = planner.calculateDailyIntake(user);
 
         // Then
-        assertEquals(expectedIntake, calculatedIntake);
+        assertEquals(expectedIntake.getCalories(), calculatedIntake.getCalories()); //niewielka modyfikacja.......
+        assertEquals(expectedIntake.getProtein(), calculatedIntake.getProtein());
+        assertEquals(expectedIntake.getFat(), calculatedIntake.getFat());
+        assertEquals(expectedIntake.getCarbohydrate(), calculatedIntake.getCarbohydrate());
     }
 }
